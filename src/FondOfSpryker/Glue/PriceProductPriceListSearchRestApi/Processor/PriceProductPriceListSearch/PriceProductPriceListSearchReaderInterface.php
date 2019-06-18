@@ -5,7 +5,7 @@ namespace FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\PriceP
 use Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface;
 use Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface;
 
-interface PriceProductConcretePriceListSearchReaderInterface
+interface PriceProductPriceListSearchReaderInterface
 {
     /**
      * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest

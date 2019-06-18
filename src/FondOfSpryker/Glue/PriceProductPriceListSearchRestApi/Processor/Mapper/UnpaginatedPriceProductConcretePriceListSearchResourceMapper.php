@@ -2,9 +2,9 @@
 
 namespace FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\Mapper;
 
-class PriceProductAbstractPriceListSearchResourceMapper extends AbstractPriceProductPriceListSearchResourceMapper
+class UnpaginatedPriceProductConcretePriceListSearchResourceMapper extends AbstractUnpaginatedPriceProductPriceListSearchResourceMapper
 {
-    protected const SEARCH_KEY_PRICES = 'price_product_abstract_price_lists';
+    protected const SEARCH_KEY_PRICES = 'price_product_concrete_price_lists';
 
     /**
      * @return string

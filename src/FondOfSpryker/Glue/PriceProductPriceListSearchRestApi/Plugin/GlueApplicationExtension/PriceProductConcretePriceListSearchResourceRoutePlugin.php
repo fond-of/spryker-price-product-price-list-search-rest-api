@@ -3,6 +3,8 @@
 namespace FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Plugin\GlueApplicationExtension;
 
 use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\PriceProductPriceListSearchRestApiConfig;
+use Generated\Shared\Transfer\RestPriceProductPriceListSearchAttributesTransfer;
+use Generated\Shared\Transfer\RestUnpaginatedPriceProductPriceListSearchAttributesTransfer;
 use Spryker\Glue\GlueApplicationExtension\Dependency\Plugin\ResourceRouteCollectionInterface;
 use Spryker\Glue\GlueApplicationExtension\Dependency\Plugin\ResourceRoutePluginInterface;
 use Spryker\Glue\Kernel\AbstractPlugin;
@@ -59,6 +61,6 @@ class PriceProductConcretePriceListSearchResourceRoutePlugin extends AbstractPlu
      */
     public function getResourceAttributesClassName(): string
     {
-        return 'TODO';
+        return RestPriceProductPriceListSearchAttributesTransfer::class;
     }
 }

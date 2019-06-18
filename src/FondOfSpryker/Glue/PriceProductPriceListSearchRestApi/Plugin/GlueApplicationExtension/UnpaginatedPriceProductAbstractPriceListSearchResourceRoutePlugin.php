@@ -3,12 +3,12 @@
 namespace FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Plugin\GlueApplicationExtension;
 
 use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\PriceProductPriceListSearchRestApiConfig;
-use Generated\Shared\Transfer\RestPriceProductPriceListSearchAttributesTransfer;
+use Generated\Shared\Transfer\RestUnpaginatedPriceProductPriceListSearchAttributesTransfer;
 use Spryker\Glue\GlueApplicationExtension\Dependency\Plugin\ResourceRouteCollectionInterface;
 use Spryker\Glue\GlueApplicationExtension\Dependency\Plugin\ResourceRoutePluginInterface;
 use Spryker\Glue\Kernel\AbstractPlugin;
 
-class PriceProductAbstractPriceListSearchResourceRoutePlugin extends AbstractPlugin implements ResourceRoutePluginInterface
+class UnpaginatedPriceProductAbstractPriceListSearchResourceRoutePlugin extends AbstractPlugin implements ResourceRoutePluginInterface
 {
     /**
      * @api
@@ -36,7 +36,7 @@ class PriceProductAbstractPriceListSearchResourceRoutePlugin extends AbstractPlu
      */
     public function getResourceType(): string
     {
-        return PriceProductPriceListSearchRestApiConfig::RESOURCE_PRICE_PRODUCT_ABSTRACT_PRICE_LIST_SEARCH;
+        return PriceProductPriceListSearchRestApiConfig::RESOURCE_UNPAGINATED_PRICE_PRODUCT_ABSTRACT_PRICE_LIST_SEARCH;
     }
 
     /**
@@ -48,7 +48,7 @@ class PriceProductAbstractPriceListSearchResourceRoutePlugin extends AbstractPlu
      */
     public function getController(): string
     {
-        return PriceProductPriceListSearchRestApiConfig::CONTROLLER_PRICE_PRODUCT_ABSTRACT_PRICE_LIST_SEARCH;
+        return PriceProductPriceListSearchRestApiConfig::CONTROLLER_UNPAGINATED_PRICE_PRODUCT_ABSTRACT_PRICE_LIST_SEARCH;
     }
 
     /**
@@ -60,6 +60,6 @@ class PriceProductAbstractPriceListSearchResourceRoutePlugin extends AbstractPlu
      */
     public function getResourceAttributesClassName(): string
     {
-        return RestPriceProductPriceListSearchAttributesTransfer::class;
+        return RestUnpaginatedPriceProductPriceListSearchAttributesTransfer::class;
     }
 }

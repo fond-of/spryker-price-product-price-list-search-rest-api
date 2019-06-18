@@ -4,55 +4,99 @@ namespace FondOfSpryker\Glue\PriceProductPriceListSearchRestApi;
 
 use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Dependency\Client\PriceProductPriceListSearchRestApiToPriceProductPriceListPageSearchClientInterface;
 use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\Mapper\PriceProductAbstractPriceListSearchResourceMapper;
-use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\Mapper\PriceProductAbstractPriceListSearchResourceMapperInterface;
 use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\Mapper\PriceProductConcretePriceListSearchResourceMapper;
-use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\Mapper\PriceProductConcretePriceListSearchResourceMapperInterface;
+use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\Mapper\PriceProductPriceListSearchResourceMapperInterface;
+use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\Mapper\UnpaginatedPriceProductAbstractPriceListSearchResourceMapper;
+use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\Mapper\UnpaginatedPriceProductConcretePriceListSearchResourceMapper;
+use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\Mapper\UnpaginatedPriceProductPriceListSearchResourceMapperInterface;
 use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\PriceProductPriceListSearch\PriceProductAbstractPriceListSearchReader;
-use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\PriceProductPriceListSearch\PriceProductAbstractPriceListSearchReaderInterface;
 use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\PriceProductPriceListSearch\PriceProductConcretePriceListSearchReader;
-use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\PriceProductPriceListSearch\PriceProductConcretePriceListSearchReaderInterface;
+use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\PriceProductPriceListSearch\PriceProductPriceListSearchReaderInterface;
+use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\UnpaginatedPriceProductPriceListSearch\UnpaginatedPriceProductAbstractPriceListSearchReader;
+use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\UnpaginatedPriceProductPriceListSearch\UnpaginatedPriceProductConcretePriceListSearchReader;
+use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\UnpaginatedPriceProductPriceListSearch\UnpaginatedPriceProductPriceListSearchReaderInterface;
 use Spryker\Glue\Kernel\AbstractFactory;
 
 class PriceProductPriceListSearchRestApiFactory extends AbstractFactory
 {
     /**
-     * @return \FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\PriceProductPriceListSearch\PriceProductConcretePriceListSearchReaderInterface
+     * @return \FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\PriceProductPriceListSearch\PriceProductPriceListSearchReaderInterface
      */
-    public function createPriceProductConcretePriceListSearchReader(): PriceProductConcretePriceListSearchReaderInterface
+    public function createPriceProductConcretePriceListSearchReader(): PriceProductPriceListSearchReaderInterface
     {
         return new PriceProductConcretePriceListSearchReader(
             $this->getPriceProductPriceListPageSearchClient(),
-            $this->createPriceProductConcretePriceListSearchMapper(),
+            $this->createPriceProductConcretePriceListSearchResourceMapper(),
             $this->getResourceBuilder()
         );
     }
 
     /**
-     * @return \FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\PriceProductPriceListSearch\PriceProductAbstractPriceListSearchReaderInterface
+     * @return \FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\PriceProductPriceListSearch\PriceProductPriceListSearchReaderInterface
      */
-    public function createPriceProductAbstractPriceListSearchReader(): PriceProductAbstractPriceListSearchReaderInterface
+    public function createPriceProductAbstractPriceListSearchReader(): PriceProductPriceListSearchReaderInterface
     {
         return new PriceProductAbstractPriceListSearchReader(
             $this->getPriceProductPriceListPageSearchClient(),
-            $this->createPriceProductAbstractPriceListSearchMapper(),
+            $this->createPriceProductAbstractPriceListSearchResourceMapper(),
             $this->getResourceBuilder()
         );
     }
 
     /**
-     * @return \FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\Mapper\PriceProductConcretePriceListSearchResourceMapperInterface
+     * @return \FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\Mapper\PriceProductPriceListSearchResourceMapperInterface
      */
-    protected function createPriceProductConcretePriceListSearchMapper(): PriceProductConcretePriceListSearchResourceMapperInterface
+    protected function createPriceProductConcretePriceListSearchResourceMapper(): PriceProductPriceListSearchResourceMapperInterface
     {
         return new PriceProductConcretePriceListSearchResourceMapper();
     }
 
     /**
-     * @return \FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\Mapper\PriceProductAbstractPriceListSearchResourceMapperInterface
+     * @return \FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\Mapper\PriceProductPriceListSearchResourceMapperInterface
      */
-    protected function createPriceProductAbstractPriceListSearchMapper(): PriceProductAbstractPriceListSearchResourceMapperInterface
+    protected function createPriceProductAbstractPriceListSearchResourceMapper(): PriceProductPriceListSearchResourceMapperInterface
     {
         return new PriceProductAbstractPriceListSearchResourceMapper();
+    }
+
+    /**
+     * @return \FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\UnpaginatedPriceProductPriceListSearch\UnpaginatedPriceProductPriceListSearchReaderInterface
+     */
+    public function createUnpaginatedPriceProductConcretePriceListSearchReader(): UnpaginatedPriceProductPriceListSearchReaderInterface
+    {
+        return new UnpaginatedPriceProductConcretePriceListSearchReader(
+            $this->getPriceProductPriceListPageSearchClient(),
+            $this->createUnpaginatedPriceProductConcretePriceListSearchResourceMapper(),
+            $this->getResourceBuilder()
+        );
+    }
+
+    /**
+     * @return \FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\UnpaginatedPriceProductPriceListSearch\UnpaginatedPriceProductPriceListSearchReaderInterface
+     */
+    public function createUnpaginatedPriceProductAbstractPriceListSearchReader(): UnpaginatedPriceProductPriceListSearchReaderInterface
+    {
+        return new UnpaginatedPriceProductAbstractPriceListSearchReader(
+            $this->getPriceProductPriceListPageSearchClient(),
+            $this->createUnpaginatedPriceProductAbstractPriceListSearchResourceMapper(),
+            $this->getResourceBuilder()
+        );
+    }
+
+    /**
+     * @return \FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\Mapper\UnpaginatedPriceProductPriceListSearchResourceMapperInterface
+     */
+    protected function createUnpaginatedPriceProductConcretePriceListSearchResourceMapper(): UnpaginatedPriceProductPriceListSearchResourceMapperInterface
+    {
+        return new UnpaginatedPriceProductConcretePriceListSearchResourceMapper();
+    }
+
+    /**
+     * @return \FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\Mapper\UnpaginatedPriceProductPriceListSearchResourceMapperInterface
+     */
+    protected function createUnpaginatedPriceProductAbstractPriceListSearchResourceMapper(): UnpaginatedPriceProductPriceListSearchResourceMapperInterface
+    {
+        return new UnpaginatedPriceProductAbstractPriceListSearchResourceMapper();
     }
 
     /**

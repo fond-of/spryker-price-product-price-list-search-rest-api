@@ -9,6 +9,11 @@
         <property name="prices" type="RestPriceProductPriceListSearchPrices[]" singular="price"/>
     </transfer>
 
+    <transfer name="RestUnpaginatedPriceProductPriceListSearchAttributes">
+        <property name="sort" type="RestPriceProductPriceListSearchSort"/>
+        <property name="prices" type="RestPriceProductPriceListSearchPrices[]" singular="price"/>
+    </transfer>
+
     <transfer name="RestPriceProductPriceListSearchSort">
         <property name="sortParamNames" type="array"/>
         <property name="sortParamLocalizedNames" type="array"/>
