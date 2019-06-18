@@ -122,11 +122,16 @@ abstract class AbstractUnpaginatedPriceProductPriceListSearchReader implements U
         $requestParameters[static::PARAMETER_NAME_PAGE] = $pagination->getCurrentPage() + 1;
         $searchResultToMerge = $this->search($searchString, $requestParameters);
 
-        if (count($searchResultToMerge['prices']) === 0) {
+        $pricesSearchKey = $this->getPricesSearchKey();
+
+        if (count($searchResultToMerge[$pricesSearchKey]) === 0) {
             return $searchResult;
         }
 
-        $searchResult['prices'] = array_merge($searchResult['prices'], $searchResultToMerge['prices']);
+        $searchResult[$pricesSearchKey] = array_merge(
+            $searchResult[$pricesSearchKey],
+            $searchResultToMerge[$pricesSearchKey]
+        );
 
         return $searchResult;
     }
@@ -166,7 +171,7 @@ abstract class AbstractUnpaginatedPriceProductPriceListSearchReader implements U
             throw new InvalidInstanceTypeException('Wrong instance for pagination.');
         }
 
-        if (!array_key_exists('prices', $searchResult)) {
+        if (!array_key_exists($this->getPricesSearchKey(), $searchResult)) {
             throw new ArrayKeyDoesNotExistException('Prices are missing');
         }
     }
@@ -187,4 +192,9 @@ abstract class AbstractUnpaginatedPriceProductPriceListSearchReader implements U
 
         return $response->addError($restErrorTransfer);
     }
+
+    /**
+     * @return string
+     */
+    abstract protected function getPricesSearchKey(): string;
 }

@@ -8,6 +8,8 @@ use Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface;
 
 class UnpaginatedPriceProductConcretePriceListSearchReader extends AbstractUnpaginatedPriceProductPriceListSearchReader
 {
+    protected const SEARCH_KEY_PRICES = 'price_product_concrete_price_lists';
+
     /**
      * @param string $searchString
      * @param array $requestParameters
@@ -27,7 +29,7 @@ class UnpaginatedPriceProductConcretePriceListSearchReader extends AbstractUnpag
     protected function buildRestResponse(RestUnpaginatedPriceProductPriceListSearchAttributesTransfer $restSearchAttributesTransfer): RestResponseInterface
     {
         $restResource = $this->restResourceBuilder->createRestResource(
-            PriceProductPriceListSearchRestApiConfig::RESOURCE_PRICE_PRODUCT_CONCRETE_PRICE_LIST_SEARCH,
+            PriceProductPriceListSearchRestApiConfig::RESOURCE_UNPAGINATED_PRICE_PRODUCT_CONCRETE_PRICE_LIST_SEARCH,
             null,
             $restSearchAttributesTransfer
         );
@@ -35,5 +37,13 @@ class UnpaginatedPriceProductConcretePriceListSearchReader extends AbstractUnpag
         $response = $this->restResourceBuilder->createRestResponse();
 
         return $response->addResource($restResource);
+    }
+
+    /**
+     * @return string
+     */
+    protected function getPricesSearchKey(): string
+    {
+        return static::SEARCH_KEY_PRICES;
     }
 }
