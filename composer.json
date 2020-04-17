@@ -10,6 +10,7 @@
   ],
   "require": {
     "php": ">=7.1",
+    "spryker/glue-application": "^1.0.0",
     "fond-of-spryker/price-product-price-list-page-search": "dev-master"
   },
   "require-dev": {
@@ -29,7 +30,8 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "FondOfSpryker\\": "tests/FondOfSpryker/"
+      "FondOfSpryker\\": "tests/FondOfSpryker/",
+      "Generated\\": "src/Generated/"
     }
   }
 }
