@@ -102,8 +102,6 @@ abstract class AbstractUnpaginatedPriceProductPriceListSearchReader implements U
      * @param string $searchString
      * @param array $requestParameters
      *
-     * @throws
-     *
      * @return array
      */
     protected function search(string $searchString, array $requestParameters = []): array
