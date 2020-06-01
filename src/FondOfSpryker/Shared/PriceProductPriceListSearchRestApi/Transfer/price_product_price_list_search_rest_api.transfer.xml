@@ -4,21 +4,12 @@
            xsi:schemaLocation="spryker:transfer-01 http://static.spryker.com/transfer-01.xsd">
 
     <transfer name="RestPriceProductPriceListSearchAttributes">
-        <property name="sort" type="RestPriceProductPriceListSearchSort"/>
         <property name="pagination" type="RestPriceProductPriceListSearchPagination"/>
         <property name="prices" type="RestPriceProductPriceListSearchPrices[]" singular="price"/>
     </transfer>
 
     <transfer name="RestUnpaginatedPriceProductPriceListSearchAttributes">
-        <property name="sort" type="RestPriceProductPriceListSearchSort"/>
         <property name="prices" type="RestPriceProductPriceListSearchPrices[]" singular="price"/>
-    </transfer>
-
-    <transfer name="RestPriceProductPriceListSearchSort">
-        <property name="sortParamNames" type="array"/>
-        <property name="sortParamLocalizedNames" type="array"/>
-        <property name="currentSortParam" type="string"/>
-        <property name="currentSortOrder" type="string"/>
     </transfer>
 
     <transfer name="RestPriceProductPriceListSearchPagination">
@@ -30,10 +21,8 @@
 
     <transfer name="RestPriceProductPriceListSearchPrices">
         <property name="idPriceList" type="int"/>
-        <property name="idProduct" type="int"/>
         <property name="sku" type="string"/>
         <property name="priceListName" type="string"/>
         <property name="prices" type="array"/>
     </transfer>
-
 </transfers>

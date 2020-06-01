@@ -36,7 +36,6 @@ class PriceProductAbstractPriceListSearchResourceMapperTest extends Unit
             'price_product_abstract_price_lists' => [
                 [],
             ],
-            'sort' => $this->sortConfigTransferMock,
         ];
 
         $this->priceProductAbstractPriceListSearchResourceMapper = new PriceProductAbstractPriceListSearchResourceMapper();
@@ -47,10 +46,6 @@ class PriceProductAbstractPriceListSearchResourceMapperTest extends Unit
      */
     public function testGetPricesSearchKey(): void
     {
-        $this->sortConfigTransferMock->expects($this->atLeastOnce())
-            ->method('toArray')
-            ->willReturn([]);
-
         $this->assertInstanceOf(
             RestPriceProductPriceListSearchAttributesTransfer::class,
             $this->priceProductAbstractPriceListSearchResourceMapper->mapRestSearchResponseToRestAttributesTransfer(
@@ -64,10 +59,6 @@ class PriceProductAbstractPriceListSearchResourceMapperTest extends Unit
      */
     public function testGetPricesSearchKeyNoArray(): void
     {
-        $this->sortConfigTransferMock->expects($this->atLeastOnce())
-            ->method('toArray')
-            ->willReturn([]);
-
         $this->assertInstanceOf(
             RestPriceProductPriceListSearchAttributesTransfer::class,
             $this->priceProductAbstractPriceListSearchResourceMapper->mapRestSearchResponseToRestAttributesTransfer(
