@@ -4,7 +4,6 @@ namespace FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\Mapper
 
 use Codeception\Test\Unit;
 use Generated\Shared\Transfer\RestPriceProductPriceListSearchAttributesTransfer;
-use Generated\Shared\Transfer\SortConfigTransfer;
 
 class PriceProductConcretePriceListSearchResourceMapperTest extends Unit
 {
@@ -19,19 +18,10 @@ class PriceProductConcretePriceListSearchResourceMapperTest extends Unit
     protected $restSearchResponse;
 
     /**
-     * @var \PHPUnit\Framework\MockObject\MockObject|\Generated\Shared\Transfer\SortConfigTransfer
-     */
-    protected $sortConfigTransferMock;
-
-    /**
      * @return void
      */
     protected function _before(): void
     {
-        $this->sortConfigTransferMock = $this->getMockBuilder(SortConfigTransfer::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
         $this->restSearchResponse = [
             'price_product_concrete_price_lists' => [
                 [],

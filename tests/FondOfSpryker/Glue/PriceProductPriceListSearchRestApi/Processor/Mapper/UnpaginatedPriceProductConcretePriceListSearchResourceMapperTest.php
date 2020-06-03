@@ -14,11 +14,6 @@ class UnpaginatedPriceProductConcretePriceListSearchResourceMapperTest extends U
     protected $unpaginatedPriceProductConcretePriceListSearchResourceMapper;
 
     /**
-     * @var \PHPUnit\Framework\MockObject\MockObject|\Generated\Shared\Transfer\SortConfigTransfer
-     */
-    protected $sortConfigTransferMock;
-
-    /**
      * @var array
      */
     protected $restSearchResponse;
@@ -28,15 +23,10 @@ class UnpaginatedPriceProductConcretePriceListSearchResourceMapperTest extends U
      */
     protected function _before(): void
     {
-        $this->sortConfigTransferMock = $this->getMockBuilder(SortConfigTransfer::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
         $this->restSearchResponse = [
             'price_product_concrete_price_lists' => [
                 [],
             ],
-            'sort' => $this->sortConfigTransferMock,
         ];
 
         $this->unpaginatedPriceProductConcretePriceListSearchResourceMapper = new UnpaginatedPriceProductConcretePriceListSearchResourceMapper();
@@ -47,10 +37,6 @@ class UnpaginatedPriceProductConcretePriceListSearchResourceMapperTest extends U
      */
     public function testMapRestSearchResponseToRestAttributesTransfer(): void
     {
-        $this->sortConfigTransferMock->expects($this->atLeastOnce())
-            ->method('toArray')
-            ->willReturn([]);
-
         $this->assertInstanceOf(
             RestUnpaginatedPriceProductPriceListSearchAttributesTransfer::class,
             $this->unpaginatedPriceProductConcretePriceListSearchResourceMapper->mapRestSearchResponseToRestAttributesTransfer(
@@ -64,14 +50,10 @@ class UnpaginatedPriceProductConcretePriceListSearchResourceMapperTest extends U
      */
     public function testMapRestSearchResponseToRestAttributesTransferNoKey(): void
     {
-        $this->sortConfigTransferMock->expects($this->atLeastOnce())
-            ->method('toArray')
-            ->willReturn([]);
-
         $this->assertInstanceOf(
             RestUnpaginatedPriceProductPriceListSearchAttributesTransfer::class,
             $this->unpaginatedPriceProductConcretePriceListSearchResourceMapper->mapRestSearchResponseToRestAttributesTransfer(
-                ['sort' => $this->sortConfigTransferMock]
+                []
             )
         );
     }
