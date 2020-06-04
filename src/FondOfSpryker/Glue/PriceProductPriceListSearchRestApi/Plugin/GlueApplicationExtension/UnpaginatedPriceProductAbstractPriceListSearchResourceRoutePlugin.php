@@ -11,9 +11,9 @@ use Spryker\Glue\Kernel\AbstractPlugin;
 class UnpaginatedPriceProductAbstractPriceListSearchResourceRoutePlugin extends AbstractPlugin implements ResourceRoutePluginInterface
 {
     /**
-     * @api
+     * {@inheritDoc}
      *
-     * {@inheritdoc}
+     * @api
      *
      * @param \Spryker\Glue\GlueApplicationExtension\Dependency\Plugin\ResourceRouteCollectionInterface $resourceRouteCollection
      *
@@ -21,16 +21,15 @@ class UnpaginatedPriceProductAbstractPriceListSearchResourceRoutePlugin extends 
      */
     public function configure(ResourceRouteCollectionInterface $resourceRouteCollection): ResourceRouteCollectionInterface
     {
-        $resourceRouteCollection
-            ->addGet('get', true);
+        $resourceRouteCollection->addGet('get', true);
 
         return $resourceRouteCollection;
     }
 
     /**
-     * @api
+     * {@inheritDoc}
      *
-     * {@inheritdoc}
+     * @api
      *
      * @return string
      */
@@ -40,9 +39,9 @@ class UnpaginatedPriceProductAbstractPriceListSearchResourceRoutePlugin extends 
     }
 
     /**
-     * @api
+     * {@inheritDoc}
      *
-     * {@inheritdoc}
+     * @api
      *
      * @return string
      */
@@ -52,9 +51,9 @@ class UnpaginatedPriceProductAbstractPriceListSearchResourceRoutePlugin extends 
     }
 
     /**
-     * @api
+     * {@inheritDoc}
      *
-     * {@inheritdoc}
+     * @api
      *
      * @return string
      */

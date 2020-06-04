@@ -4,7 +4,6 @@ namespace FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Plugin\GlueAppli
 
 use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\PriceProductPriceListSearchRestApiConfig;
 use Generated\Shared\Transfer\RestPriceProductPriceListSearchAttributesTransfer;
-use Generated\Shared\Transfer\RestUnpaginatedPriceProductPriceListSearchAttributesTransfer;
 use Spryker\Glue\GlueApplicationExtension\Dependency\Plugin\ResourceRouteCollectionInterface;
 use Spryker\Glue\GlueApplicationExtension\Dependency\Plugin\ResourceRoutePluginInterface;
 use Spryker\Glue\Kernel\AbstractPlugin;
@@ -12,9 +11,9 @@ use Spryker\Glue\Kernel\AbstractPlugin;
 class PriceProductConcretePriceListSearchResourceRoutePlugin extends AbstractPlugin implements ResourceRoutePluginInterface
 {
     /**
-     * @api
+     * {@inheritDoc}
      *
-     * {@inheritdoc}
+     * @api
      *
      * @param \Spryker\Glue\GlueApplicationExtension\Dependency\Plugin\ResourceRouteCollectionInterface $resourceRouteCollection
      *
@@ -22,16 +21,15 @@ class PriceProductConcretePriceListSearchResourceRoutePlugin extends AbstractPlu
      */
     public function configure(ResourceRouteCollectionInterface $resourceRouteCollection): ResourceRouteCollectionInterface
     {
-        $resourceRouteCollection
-            ->addGet('get', true);
+        $resourceRouteCollection->addGet('get', true);
 
         return $resourceRouteCollection;
     }
 
     /**
-     * @api
+     * {@inheritDoc}
      *
-     * {@inheritdoc}
+     * @api
      *
      * @return string
      */
@@ -41,9 +39,9 @@ class PriceProductConcretePriceListSearchResourceRoutePlugin extends AbstractPlu
     }
 
     /**
-     * @api
+     * {@inheritDoc}
      *
-     * {@inheritdoc}
+     * @api
      *
      * @return string
      */
@@ -53,9 +51,9 @@ class PriceProductConcretePriceListSearchResourceRoutePlugin extends AbstractPlu
     }
 
     /**
-     * @api
+     * {@inheritDoc}
      *
-     * {@inheritdoc}
+     * @api
      *
      * @return string
      */
