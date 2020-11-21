@@ -8,10 +8,6 @@
         <property name="prices" type="RestPriceProductPriceListSearchPrices[]" singular="price"/>
     </transfer>
 
-    <transfer name="RestUnpaginatedPriceProductPriceListSearchAttributes">
-        <property name="prices" type="RestPriceProductPriceListSearchPrices[]" singular="price"/>
-    </transfer>
-
     <transfer name="RestPriceProductPriceListSearchPagination">
         <property name="numFound" type="int" />
         <property name="currentPage" type="int" />
