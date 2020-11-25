@@ -5,6 +5,7 @@
 
     <transfer name="RestPriceProductPriceListSearchAttributes">
         <property name="pagination" type="RestPriceProductPriceListSearchPagination"/>
+        <property name="sort" type="RestPriceProductPriceListSearchSort"/>
         <property name="prices" type="RestPriceProductPriceListSearchPrices[]" singular="price"/>
     </transfer>
 
@@ -13,6 +14,13 @@
         <property name="currentPage" type="int" />
         <property name="maxPage" type="int" />
         <property name="currentItemsPerPage" type="int" />
+    </transfer>
+
+    <transfer name="RestPriceProductPriceListSearchPaginationSort">
+        <property name="sortParamNames" type="array" singular="sortParamNames"/>
+        <property name="sortParamLocalizedNames" type="array" singular="sortParamLocalizedNames"/>
+        <property name="currentSortParam" type="string"/>
+        <property name="currentSortOrder" type="string"/>
     </transfer>
 
     <transfer name="RestPriceProductPriceListSearchPrices">
