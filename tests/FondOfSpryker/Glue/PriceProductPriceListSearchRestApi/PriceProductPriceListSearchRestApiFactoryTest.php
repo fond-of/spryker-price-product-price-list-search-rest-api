@@ -5,7 +5,6 @@ namespace FondOfSpryker\Glue\PriceProductPriceListSearchRestApi;
 use Codeception\Test\Unit;
 use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Dependency\Client\PriceProductPriceListSearchRestApiToPriceProductPriceListPageSearchClientInterface;
 use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\PriceProductPriceListSearch\PriceProductPriceListSearchReaderInterface;
-use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\UnpaginatedPriceProductPriceListSearch\UnpaginatedPriceProductPriceListSearchReaderInterface;
 use Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceBuilderInterface;
 use Spryker\Glue\Kernel\Container;
 
@@ -112,46 +111,6 @@ class PriceProductPriceListSearchRestApiFactoryTest extends Unit
         $this->assertInstanceOf(
             PriceProductPriceListSearchReaderInterface::class,
             $this->priceProductPriceListSearchRestApiFactory->createPriceProductAbstractPriceListSearchReader()
-        );
-    }
-
-    /**
-     * @return void
-     */
-    public function testCreateUnpaginatedPriceProductConcretePriceListSearchReader(): void
-    {
-        $this->containerMock->expects($this->atLeastOnce())
-            ->method('has')
-            ->willReturn(true);
-
-        $this->containerMock->expects($this->atLeastOnce())
-            ->method('get')
-            ->with(PriceProductPriceListSearchRestApiDependencyProvider::CLIENT_PRICE_PRODUCT_PRICE_LIST_PAGE_SEARCH)
-            ->willReturn($this->priceProductPriceListSearchRestApiToPriceProductPriceListPageSearchClientInterfaceMock);
-
-        $this->assertInstanceOf(
-            UnpaginatedPriceProductPriceListSearchReaderInterface::class,
-            $this->priceProductPriceListSearchRestApiFactory->createUnpaginatedPriceProductConcretePriceListSearchReader()
-        );
-    }
-
-    /**
-     * @return void
-     */
-    public function testCreateUnpaginatedPriceProductAbstractPriceListSearchReader(): void
-    {
-        $this->containerMock->expects($this->atLeastOnce())
-            ->method('has')
-            ->willReturn(true);
-
-        $this->containerMock->expects($this->atLeastOnce())
-            ->method('get')
-            ->with(PriceProductPriceListSearchRestApiDependencyProvider::CLIENT_PRICE_PRODUCT_PRICE_LIST_PAGE_SEARCH)
-            ->willReturn($this->priceProductPriceListSearchRestApiToPriceProductPriceListPageSearchClientInterfaceMock);
-
-        $this->assertInstanceOf(
-            UnpaginatedPriceProductPriceListSearchReaderInterface::class,
-            $this->priceProductPriceListSearchRestApiFactory->createUnpaginatedPriceProductAbstractPriceListSearchReader()
         );
     }
 }

@@ -6,15 +6,9 @@ use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Dependency\Client\Pric
 use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\Mapper\PriceProductAbstractPriceListSearchResourceMapper;
 use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\Mapper\PriceProductConcretePriceListSearchResourceMapper;
 use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\Mapper\PriceProductPriceListSearchResourceMapperInterface;
-use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\Mapper\UnpaginatedPriceProductAbstractPriceListSearchResourceMapper;
-use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\Mapper\UnpaginatedPriceProductConcretePriceListSearchResourceMapper;
-use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\Mapper\UnpaginatedPriceProductPriceListSearchResourceMapperInterface;
 use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\PriceProductPriceListSearch\PriceProductAbstractPriceListSearchReader;
 use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\PriceProductPriceListSearch\PriceProductConcretePriceListSearchReader;
 use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\PriceProductPriceListSearch\PriceProductPriceListSearchReaderInterface;
-use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\UnpaginatedPriceProductPriceListSearch\UnpaginatedPriceProductAbstractPriceListSearchReader;
-use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\UnpaginatedPriceProductPriceListSearch\UnpaginatedPriceProductConcretePriceListSearchReader;
-use FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\UnpaginatedPriceProductPriceListSearch\UnpaginatedPriceProductPriceListSearchReaderInterface;
 use Spryker\Glue\Kernel\AbstractFactory;
 
 class PriceProductPriceListSearchRestApiFactory extends AbstractFactory
@@ -57,46 +51,6 @@ class PriceProductPriceListSearchRestApiFactory extends AbstractFactory
     protected function createPriceProductAbstractPriceListSearchResourceMapper(): PriceProductPriceListSearchResourceMapperInterface
     {
         return new PriceProductAbstractPriceListSearchResourceMapper();
-    }
-
-    /**
-     * @return \FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\UnpaginatedPriceProductPriceListSearch\UnpaginatedPriceProductPriceListSearchReaderInterface
-     */
-    public function createUnpaginatedPriceProductConcretePriceListSearchReader(): UnpaginatedPriceProductPriceListSearchReaderInterface
-    {
-        return new UnpaginatedPriceProductConcretePriceListSearchReader(
-            $this->getPriceProductPriceListPageSearchClient(),
-            $this->createUnpaginatedPriceProductConcretePriceListSearchResourceMapper(),
-            $this->getResourceBuilder()
-        );
-    }
-
-    /**
-     * @return \FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\UnpaginatedPriceProductPriceListSearch\UnpaginatedPriceProductPriceListSearchReaderInterface
-     */
-    public function createUnpaginatedPriceProductAbstractPriceListSearchReader(): UnpaginatedPriceProductPriceListSearchReaderInterface
-    {
-        return new UnpaginatedPriceProductAbstractPriceListSearchReader(
-            $this->getPriceProductPriceListPageSearchClient(),
-            $this->createUnpaginatedPriceProductAbstractPriceListSearchResourceMapper(),
-            $this->getResourceBuilder()
-        );
-    }
-
-    /**
-     * @return \FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\Mapper\UnpaginatedPriceProductPriceListSearchResourceMapperInterface
-     */
-    protected function createUnpaginatedPriceProductConcretePriceListSearchResourceMapper(): UnpaginatedPriceProductPriceListSearchResourceMapperInterface
-    {
-        return new UnpaginatedPriceProductConcretePriceListSearchResourceMapper();
-    }
-
-    /**
-     * @return \FondOfSpryker\Glue\PriceProductPriceListSearchRestApi\Processor\Mapper\UnpaginatedPriceProductPriceListSearchResourceMapperInterface
-     */
-    protected function createUnpaginatedPriceProductAbstractPriceListSearchResourceMapper(): UnpaginatedPriceProductPriceListSearchResourceMapperInterface
-    {
-        return new UnpaginatedPriceProductAbstractPriceListSearchResourceMapper();
     }
 
     /**
